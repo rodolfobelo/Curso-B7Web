@@ -43,7 +43,8 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $post = Post::find($id);        
+        return $post;
     }
 
     /**
@@ -51,7 +52,17 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $title = 'Meu quarto post alterado';
+        $content = 'Conteudo qualquer';
+        $author = 'Rodolfo Freire Belo';
+
+        $post = Post::find($id)->update([
+            'title' => $title,
+            'content' => $content,
+            'author' => $author
+        ]);
+
+        return $post;
     }
 
     /**
@@ -67,6 +78,13 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $post = Post::find($id)->delete();
+        return $post;
+        // if($post > 0){
+        //     $post->delete();
+        //     return 'Foram afetados ' . $post . 'registro(s)!';
+        // }else {
+        //     return 'Nenhhum registro foi afetado!';
+        // }
     }
 }
