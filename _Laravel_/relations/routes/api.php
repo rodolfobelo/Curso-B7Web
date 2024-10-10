@@ -5,5 +5,8 @@ use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/user', [UserController::class, 'index']);
+Route::get('/users', [UserController::class, 'index']);
+Route::get('/users/{id}', [UserController::class, 'show']);
+
 Route::get('/addresses', [AddressController::class, 'index']);
+Route::get('/addresses/{id}', [AddressController::class, 'show']);
