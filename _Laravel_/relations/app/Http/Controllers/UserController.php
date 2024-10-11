@@ -18,9 +18,10 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $r)
     {
-        //
+        $userRow = $r->only(['name', 'email', 'password', 'email_verified_at']);
+        return $user = User::create($userRow);
     }
 
     /**

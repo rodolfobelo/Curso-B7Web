@@ -21,7 +21,9 @@ class AddressController extends Controller
      */
     public function create()
     {
-        //
+        $address = new Address();
+        $address->address = 'Rua dos Montes';
+        $address->save();
     }
 
     /**
