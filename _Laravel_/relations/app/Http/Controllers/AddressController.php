@@ -19,11 +19,10 @@ class AddressController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $r)
     {
-        $address = new Address();
-        $address->address = 'Rua dos Montes';
-        $address->save();
+        $addressRow = $r->only(['address']);
+        return $address = Address::create($addressRow);
     }
 
     /**
