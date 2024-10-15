@@ -20,7 +20,7 @@ class UserController extends Controller
      */
     public function create(Request $r)
     {
-        $userRow = $r->only(['name', 'email', 'password', 'email_verified_at']);
+        $userRow = $r->only(['name', 'email', 'password', 'email_verified_at', 'address_id']);
         return $user = User::create($userRow);
     }
 
