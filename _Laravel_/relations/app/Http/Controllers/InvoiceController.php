@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Address;
+use App\Models\Invoice;
 use Illuminate\Http\Request;
 
-class AddressController extends Controller
+class InvoiceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $r)
+    public function index()
     {
-        return $addresses = Address::all();
         //
+        return $invoices = Invoice::all();
     }
 
     /**
@@ -21,8 +21,9 @@ class AddressController extends Controller
      */
     public function create(Request $r)
     {
-        $addressRow = $r->only(['address', 'users_id']);
-        return $address = Address::create($addressRow);
+        $invoicesRow = $r->only(['description', 'value', 'address_id']);
+        return $invoices = Invoice::create($invoicesRow);
+        // return 'create';
     }
 
     /**
@@ -38,8 +39,8 @@ class AddressController extends Controller
      */
     public function show(string $id)
     {
-        return $addreess = Address::find($id);
-        // return $addreess;
+        //
+        return 'show';
     }
 
     /**

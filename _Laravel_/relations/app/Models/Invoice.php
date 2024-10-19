@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-
-class Address extends Model
+class Invoice extends Model
 {
-    public $table = 'addresses';
+    public $table = 'invoices';
 
     protected $fillable = [
-        'address', 'users_id'
+        'description', 'value', 'address_id'
     ];
     use HasFactory;
 }
