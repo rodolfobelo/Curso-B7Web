@@ -13,4 +13,8 @@ class Invoice extends Model
         'description', 'value', 'address_id'
     ];
     use HasFactory;
+
+    public function address(){
+        return $this->hasOne(Address::class, 'id', 'address_id');
+    }
 }

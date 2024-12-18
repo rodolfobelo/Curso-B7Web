@@ -13,5 +13,12 @@ class Address extends Model
     protected $fillable = [
         'address', 'users_id'
     ];
+
+    protected $hidden = ['users_id'];
+
+    public function user() {
+        return $this->hasOne(User::class, 'id', 'users_id');
+    }
+
     use HasFactory;
 }

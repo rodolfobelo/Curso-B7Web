@@ -2,27 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Address;
+use App\Models\Teste;
 use Illuminate\Http\Request;
 
-class AddressController extends Controller
+class TesteController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $r)
+    public function index()
     {
-        return $addresses = Address::all();
+        return $teste = Teste::all();
         //
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Request $r)
+    public function create()
     {
-        $addressRow = $r->only(['address', 'users_id']);
-        return $address = Address::create($addressRow);
+        //
     }
 
     /**
@@ -38,9 +37,7 @@ class AddressController extends Controller
      */
     public function show(string $id)
     {
-        $addreess = Address::find($id);
-        $addreess['user'] = $addreess->user;
-        return $addreess;
+        //
     }
 
     /**

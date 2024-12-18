@@ -23,7 +23,6 @@ class InvoiceController extends Controller
     {
         $invoicesRow = $r->only(['description', 'value', 'address_id']);
         return $invoices = Invoice::create($invoicesRow);
-        // return 'create';
     }
 
     /**
@@ -37,10 +36,11 @@ class InvoiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $r)
     {
-        //
-        return 'show';
+        $invoice = Invoice::find($r->id);
+        $invoice['addres'] = $invoice->address;
+        return $invoice;
     }
 
     /**
@@ -49,6 +49,7 @@ class InvoiceController extends Controller
     public function edit(string $id)
     {
         //
+        $invoice = Invoice::find($id);
     }
 
     /**
@@ -65,5 +66,6 @@ class InvoiceController extends Controller
     public function destroy(string $id)
     {
         //
+        return $invoice = Invoice::destroy($id);
     }
 }
